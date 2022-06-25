@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
 import TopAppBar from "./TopAppBar";
+import Footer from "./Footer";
 
 import Login from './Login';
 import Customer from './Customer';
@@ -42,9 +43,6 @@ class App extends React.Component {
 				<div>
 					<TopAppBar />
 
-					<Routes>
-
-					</Routes>
 				</div>
 			);
 		} else {
@@ -57,11 +55,12 @@ class App extends React.Component {
 	
 	export default withStyles(styles)(App);
 	
-	/*
-	<Button component={Link} to="" variant="contained" color="primary">User</Button>
-	<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
-	<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
-	<Route path="/customer" element={<Customer />} />
-	<Route path="/contract" element={<Contract />} />
-	<Route path="" element={<User />} />
+/*
+<Footer sx={{paddingBottom: "60px"}}></Footer>
+<Button component={Link} to="" variant="contained" color="primary">User</Button>
+<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
+<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
+<Route path="/customer" element={<Customer />} />
+<Route path="/contract" element={<Contract />} />
+<Route path="" element={<User />} />
 */
