@@ -41,12 +41,12 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
-					<Button component={Link} to="/" variant="contained" color="primary">Customers</Button>
-					<Button component={Link} to="/user" variant="contained" color="primary">Users</Button>
-					<Button component={Link} to="/contract" variant="contained" color="primary">Contracts</Button>
+					<Button component={Link} to="/" variant="contained" color="primary">Users</Button>
+					<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
+					<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
 					<Routes>
-						<Route path="/" element={<Customer />} />
-						<Route path="/user" element={<User />} />
+						<Route path="/" element={<User />} />
+						<Route path="/customer" element={<Customer />} />
 						<Route path="/contract" element={<Contract />} />
 					</Routes>
 				</div>

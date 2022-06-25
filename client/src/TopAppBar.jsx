@@ -59,7 +59,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const TopAppBar = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
-  
+	const [headertext, setHeadertext] = React.useState('User');
+
 	const isMenuOpen = Boolean(anchorEl);
   
 	const handleProfileMenuOpen = (event) => {
@@ -102,7 +103,7 @@ const TopAppBar = () => {
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
+          > {headertext}
           </Typography>
 
 		  <Button variant="outlined" sx={{color : "white", borderColor : "white", marginLeft : "32px"}}>Add</Button>
