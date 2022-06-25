@@ -2,7 +2,7 @@
  *                                                                        *
  * This software is governed by the GPL version 2.                        *
  *                                                                        *
- * Copyright: Jay Imort, Kyle Mezger                                      *
+ * Copyright: Rico Hofmann, Darios Pachtsinis                             *
  *                                                                        *
  * $Id:$
  *                                                                        *
