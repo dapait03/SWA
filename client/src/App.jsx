@@ -37,12 +37,12 @@ class App extends React.Component {
 			return (
 				<div>
 					<Button component={Link} to="/" variant="contained" color="primary">Customers</Button>
-					<Button component={Link} to="/users" variant="contained" color="primary">Users</Button>
-					<Button component={Link} to="/contracts" variant="contained" color="primary">Contracts</Button>
+					<Button component={Link} to="/user" variant="contained" color="primary">Users</Button>
+					<Button component={Link} to="/contract" variant="contained" color="primary">Contracts</Button>
 					<Routes>
 						<Route path="/" element={<Customer />} />
-						<Route path="/users" element={<User />} />
-						<Route path="/contracts" element={<Contract />} />
+						<Route path="/user" element={<User />} />
+						<Route path="/contract" element={<Contract />} />
 					</Routes>
 				</div>
 			);
