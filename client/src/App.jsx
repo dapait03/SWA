@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
 import TopAppBar from "./TopAppBar";
+import SideMenu from "./SideMenu";
 import Footer from "./Footer";
 
 import Login from './Login';
@@ -42,7 +43,10 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
+					<SideMenu />
 					<Customer />
+					
+
 				</div>
 			);
 		} else {

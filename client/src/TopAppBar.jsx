@@ -106,7 +106,7 @@ const TopAppBar = () => {
           > {headertext}
           </Typography>
 
-		  <Button variant="outlined" sx={{color : "white", borderColor : "white", marginLeft : "32px"}}>Add</Button>
+		  <Button variant="contained" sx={{color : "#1976D2", bgcolor : "white", marginLeft : "10vw"}}>Add</Button>
 
 		  <Box sx={{ flexGrow: 1 }} />
           <Search>
