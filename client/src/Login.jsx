@@ -44,12 +44,12 @@ class Login extends React.Component {
 
 	constructor(props) {
 		super(props);
-	    this.state = {	  
+	    this.state = {
 			password: '',
 			username: '',
 			showPassword: false,
 			loginButtonDisabled: true,
-		};		
+		};
 	}
 	
 	handleChange = (event) => {
