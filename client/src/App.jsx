@@ -10,9 +10,7 @@ import Customer from './Customer';
 import User from './User';
 import Contract from './Contract';
 
-import { BrowserRouter as Routes, Router, Link, useRoutes } from "react-router-dom";
-
-import Button from '@material-ui/core/Button';
+import { Routes, Route } from "react-router-dom";
 
 const styles = theme => ({
 	center: {
@@ -45,7 +43,11 @@ class App extends React.Component {
 					<TopAppBar />
 					<SideMenu />
 					<Customer />
-					
+					<Routes>
+						<Route path="/" element={<Customer />} />
+						<Route path="/users" element={<User />} />
+						<Route path="/contracts" element={<Contract />} />
+					</Routes>
 
 				</div>
 			);
@@ -64,7 +66,4 @@ class App extends React.Component {
 <Button component={Link} to="" variant="contained" color="primary">User</Button>
 <Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
 <Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
-<Route path="/customer" element={<Customer />} />
-<Route path="/contract" element={<Contract />} />
-<Route path="" element={<User />} />
 */
