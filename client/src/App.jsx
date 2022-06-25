@@ -8,7 +8,7 @@ import Customer from './Customer';
 import User from './User';
 import Contract from './Contract';
 
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Routes, Router, Link, useRoutes } from "react-router-dom";
 
 import Button from '@material-ui/core/Button';
 
@@ -41,27 +41,27 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
-					<Button component={Link} to="" variant="contained" color="primary">User</Button>
 
 					<Routes>
-						<Route path="" element={<User />} />
 
 					</Routes>
 				</div>
 			);
 		} else {
 			return (
-			<Login url={theUrl} authorized = {this.authorized}></Login> 
-			);
+				<Login url={theUrl} authorized = {this.authorized}></Login> 
+				);
+			}
 		}
 	}
-}
-
-export default withStyles(styles)(App);
-
-/*
-					<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
-					<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
-					<Route path="/customer" element={<Customer />} />
-						<Route path="/contract" element={<Contract />} />
+	
+	export default withStyles(styles)(App);
+	
+	/*
+	<Button component={Link} to="" variant="contained" color="primary">User</Button>
+	<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
+	<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
+	<Route path="/customer" element={<Customer />} />
+	<Route path="/contract" element={<Contract />} />
+	<Route path="" element={<User />} />
 */
