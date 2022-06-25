@@ -116,24 +116,24 @@ public class Contract implements Serializable {
 		this.contractEndDate = contractEndDate;
 	}
 
-	public String getContractIp1() {
+	public String getContractIPs1() {
 		return this.contractIp1;
 	}
-	public void setContractIp1(String contractIp1) {
+	public void setContractIPs1(String contractIp1) {
 		this.contractIp1 = contractIp1;
 	}
 
-	public String getContractIp2() {
+	public String getContractIPs2() {
 		return this.contractIp2;
 	}
-	public void setContractIp2(String contractIp2) {
+	public void setContractIPs2(String contractIp2) {
 		this.contractIp2 = contractIp2;
 	}
 
-	public String getContractIp3() {
+	public String getContractIPs3() {
 		return this.contractIp3;
 	}
-	public void setContractIp3(String contractIp3) {
+	public void setContractIPs3(String contractIp3) {
 		this.contractIp3 = contractIp3;
 	}
 
@@ -144,24 +144,24 @@ public class Contract implements Serializable {
 		this.contractVersion = contractVersion;
 	}
 
-	public int getContractNumFeature1() {
+	public int getContractNumFeatures1() {
 		return this.contractNumFeature1;
 	}
-	public void setContractNumFeature1(int contractNumFeature1) {
+	public void setContractNumFeatures1(int contractNumFeature1) {
 		this.contractNumFeature1 = contractNumFeature1;
 	}
 
-	public int getContractNumFeature2() {
+	public int getContractNumFeatures2() {
 		return this.contractNumFeature2;
 	}
-	public void setContractNumFeature2(int contractNumFeature2) {
+	public void setContractNumFeatures2(int contractNumFeature2) {
 		this.contractNumFeature2 = contractNumFeature2;
 	}
 
-	public int getContractNumFeature3() {
+	public int getContractNumFeatures3() {
 		return this.contractNumFeature3;
 	}
-	public void setContractNumFeature3(int contractNumFeature3) {
+	public void setContractNumFeatures3(int contractNumFeature3) {
 		this.contractNumFeature3 = contractNumFeature3;
 	}
 

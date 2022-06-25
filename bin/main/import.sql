@@ -85,10 +85,10 @@ VALUES
 (
 1,
 "admin",
-"123",
-"Jay",
-"Import",
+"admin",
+"Admin",
+"Istrator",
 "admin@email.com",
-"0123456789",
-"9876543210",
+"12345",
+"54321",
 1);

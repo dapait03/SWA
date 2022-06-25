@@ -35,14 +35,14 @@ public class ContractDao {
 	}
 	
 
-	public List<Contract> getContracts() {
+	public List<Contract> getContractList() {
 		Query q = em.createQuery("select c from Contracts c");
 		List<Contract> contracts = q.getResultList();
 		return contracts;
 	}
 
     @Transactional
-    public Contract addContract(Contract contract) {
+    public Contract addToContractList(Contract contract) {
     	if (contract.getContID() != null) {
     		contract = em.merge(contract);
     	} else {
@@ -62,7 +62,7 @@ public class ContractDao {
 	}
 	
     @Transactional
-    public void deleteAllContracts() {
+    public void deleteContractList() {
     	try {
 
     	    Query del = em.createQuery("DELETE * FROM Contracts");
