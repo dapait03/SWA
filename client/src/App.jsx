@@ -41,13 +41,11 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
-					<Button component={Link} to="/" variant="contained" color="primary">Users</Button>
-					<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
-					<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
+					<Button component={Link} to="" variant="contained" color="primary">User</Button>
+
 					<Routes>
-						<Route path="/" element={<User />} />
-						<Route path="/customer" element={<Customer />} />
-						<Route path="/contract" element={<Contract />} />
+						<Route path="" element={<User />} />
+
 					</Routes>
 				</div>
 			);
@@ -61,3 +59,9 @@ class App extends React.Component {
 
 export default withStyles(styles)(App);
 
+/*
+					<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
+					<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
+					<Route path="/customer" element={<Customer />} />
+						<Route path="/contract" element={<Contract />} />
+*/
