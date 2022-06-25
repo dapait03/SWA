@@ -174,7 +174,7 @@ const Posts = () => {
             {headerText}
           </Typography>
 
-		  <Button variant="outlined">Add</Button>
+		  <Button variant="outlined" sx={{color : "white", borderColor : "white", marginLeft : "32px"}}>Add</Button>
 
 		  <Box sx={{ flexGrow: 1 }} />
           <Search>
@@ -204,7 +204,6 @@ const Posts = () => {
 
 			<IconButton
               size="large"
-              aria-label="show 17 new notifications"
               color="inherit"
             >
               <Badge>
