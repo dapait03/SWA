@@ -8,6 +8,8 @@ import Contract from './Contract';
 
 import { Routes, Route, Link } from "react-router-dom";
 
+import Button from '@material-ui/core/Button';
+
 const styles = theme => ({
 	center: {
 		display: 'flex',
