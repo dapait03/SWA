@@ -42,7 +42,6 @@ class App extends React.Component {
 				<div>
 					<TopAppBar />
 					<SideMenu />
-					<Customer />
 					<Routes>
 						<Route path="/" element={<Customer />} />
 						<Route path="/users" element={<User />} />
