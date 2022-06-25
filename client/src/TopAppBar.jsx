@@ -68,7 +68,6 @@ const TopAppBar = () => {
   
 	const handleMenuClose = () => {
 	  setAnchorEl(null);
-	  handleMobileMenuClose();
 	};
   
 	const menuId = 'primary-search-account-menu';
@@ -104,7 +103,6 @@ const TopAppBar = () => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            {headerText}
           </Typography>
 
 		  <Button variant="outlined" sx={{color : "white", borderColor : "white", marginLeft : "32px"}}>Add</Button>
@@ -150,5 +148,5 @@ const TopAppBar = () => {
   )
 }
 
-export default Posts
+export default TopAppBar
 

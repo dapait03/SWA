@@ -1,6 +1,8 @@
 import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
+import TopAppBar from "./TopAppBar";
+
 import Login from './Login';
 import Customer from './Customer';
 import User from './User';
@@ -38,6 +40,7 @@ class App extends React.Component {
 		if (this.state.loggedIn) {
 			return (
 				<div>
+					<TopAppBar />
 					<Button component={Link} to="/" variant="contained" color="primary">Customers</Button>
 					<Button component={Link} to="/user" variant="contained" color="primary">Users</Button>
 					<Button component={Link} to="/contract" variant="contained" color="primary">Contracts</Button>
