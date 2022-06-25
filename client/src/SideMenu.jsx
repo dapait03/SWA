@@ -26,7 +26,7 @@ const SideMenu = (props) => {
             <Button variant="contained" size="large" sx={{color : "#1976D2", bgcolor: "white", borderColor : "white", marginTop: "5vh", width:"80%" , marginLeft: "10%"}} 
                         onClick={highlightButton}
             >
-                 Contracts
+                Contracts
             </Button>
             <Button variant="outlined" size="large" sx={{color : "white", borderColor : "white", marginTop: "5vh", width:"80%" , marginLeft: "10%"}}
                         onClick={highlightButton}
