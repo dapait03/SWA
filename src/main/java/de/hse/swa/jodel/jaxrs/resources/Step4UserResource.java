@@ -46,14 +46,14 @@ public class Step4UserResource {
     }
     
     @GET
-    @Path("customer")
+    @Path("customers")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Customer> getCustomers() {
         return customerDao.getCustomers();
     }
 
     @GET
-    @Path("contract")
+    @Path("contracts")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Contract> getContractList() {
         return contractDao.getContractList();
@@ -61,14 +61,14 @@ public class Step4UserResource {
 
 
     @GET
-    @Path("customer/{id}")
+    @Path("customers/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Customer getCustomer(Long id) {
         return customerDao.getCustomer(id);
     }
 
     @GET
-    @Path("contract/{id}")
+    @Path("contracts/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Contract getContract(Long id) {
         return contractDao.getContract(id);
@@ -109,7 +109,7 @@ public class Step4UserResource {
     
 
     @PUT
-    @Path("customer")
+    @Path("customers")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Customer addToCustomerList(Customer customer) {
@@ -122,7 +122,7 @@ public class Step4UserResource {
      * @return the new user
      */
     @POST
-    @Path("customer")
+    @Path("customers")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Customer updateCustomer(Customer customer) {
@@ -131,7 +131,7 @@ public class Step4UserResource {
 
 
     @PUT
-    @Path("contract")
+    @Path("contracts")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Contract addToContractList(Contract contract) {
@@ -144,7 +144,7 @@ public class Step4UserResource {
      * @return the new user
      */
     @POST
-    @Path("contract")
+    @Path("contracts")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Contract updateContract(Contract contract) {
