@@ -42,7 +42,7 @@ public class CustomerDao {
 	}
 
     @Transactional
-    public Customer addCustomer(Customer customer) {
+    public Customer addToCustomerList(Customer customer) {
     	if (customer.getCustID() != null) {
     		customer = em.merge(customer);
     	} else {
