@@ -19,7 +19,7 @@ export default function ContractDialog(props) {
   const [date, setDate] = React.useState(new Date('2022-08-18T21:11:54'));
   const [version, setVersion] = React.useState('');
   const [responsible, setResponsible] = React.useState('');
-  const contract ="test"; //Name aus props oder Datenbank
+  const contract ="test";      //Name aus props oder Datenbank
   const responsibles = [       //Generation über Datenbank
   {
     value: 'Name 1',

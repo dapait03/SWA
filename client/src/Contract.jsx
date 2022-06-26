@@ -52,17 +52,27 @@ class Contract extends React.Component {
                         <th style={{border: "2px solid grey", width: "42%"}}>Start Date</th>
                         <th style={{border: "2px solid grey", width: "25%"}}>End Date</th>
                         <th style={{border: "2px solid grey", width: "25%"}}>Version</th>
-                        <Button style={{hidden: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                        <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                        <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained">Delete</Button>
+                        </td>
                     </tr>
                 </table>
                 {this.state.contracts&& this.state.contracts.map((contracts) =>
                 <table style={{width:"100%"}}>
-                    <tr className="tableRow" key={contracts.custID} style={{width:"100%"}}>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "8%"}}>{contracts.contractUser1}</td>
+                    <tr className="tableRow" key={contracts.contID} style={{width:"100%"}}>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "8%"}}>{contracts.contID}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{contracts.contractStartDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
+                        <td className="tableCell" style={{ width: "11%"}}>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Delete</Button>
+                        </td>
                     </tr>
                 </table>
                 )}

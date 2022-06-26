@@ -51,7 +51,12 @@ class Customer extends React.Component {
                         <th style={{border: "2px solid grey", width: "42%"}}>Adresse</th>
                         <th style={{border: "2px solid grey", width: "25%"}}>Department</th>
                         <th style={{border: "2px solid grey", width: "25%"}}>Name</th>
-                        <Button style={{hidden: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained">Delete</Button>
+                        </td>
                     </tr>
                 </table>
                 {this.state.customers&& this.state.customers.map((customer) =>
@@ -61,8 +66,12 @@ class Customer extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{customer.address}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.department}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.name}</td>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
-                    </tr>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Delete</Button>
+                        </td>                    </tr>
                 </table>
                 )}
                 <CustomerDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
