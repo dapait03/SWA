@@ -5,6 +5,8 @@ import { Box, Button } from "@material-ui/core";
 
 import HttpService from "./HttpService";
 
+import CustomerDialog from "./CustomerDialog";
+
 const styles = theme => ({
     center: {
         display: 'block',
@@ -25,8 +27,6 @@ class Customer extends React.Component {
         };
     }
 
-
-
     componentDidMount() {
         HttpService.getCustomers().then(res => {
             this.setState({ customers : res });
@@ -36,9 +36,18 @@ class Customer extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classes.center}>
-                <Button variant="contained" color="primary" >Add Customer </Button>
-                <h1>Customers </h1>
+            <div>
+                {this.state.customers&& this.state.customers.map((customer) =>
+                <table style={{background: "lightgray", width:"100%"}}>
+                    <tr className="tableRow" key={customer.custID} style={{background: "lightgray", width:"100%"}}>
+                        <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{customer.custID}</td>
+                        <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{customer.address}</td>
+                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.department}</td>
+                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.name}</td>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog(customer.name,customer.custID)}>Edit</Button>
+                    </tr>
+                </table>
+                )}
 
                 {this.state.customers&& this.state.customers.map((cus, i) =>
                  <Box key={i}>{cus.name}</Box>

@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
 import TopAppBar from "./TopAppBar";
-import SideMenu from "./SideMenu";
+import MainScene from "./MainScene";
 import Footer from "./Footer";
 
 import Login from './Login';
@@ -44,10 +44,7 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
-					<SideMenu />
-					<UserDialog />
-					<ContractDialog />
-					<CustomerDialog />
+					<MainScene />
 					<Routes>
 						<Route path="/" element={<Customer />} />
 						<Route path="/users" element={<User />} />
