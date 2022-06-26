@@ -38,8 +38,8 @@ class User extends React.Component {
         return (
             <div >
                 {this.state.users&& this.state.users.map((users) =>
-                <table style={{background: "#1976D2", width:"100%"}}>
-                    <tr className="tableRow" key={users.custID} style={{background: "#1986D2", width:"100%"}}>
+                <table style={{background: "lightgray", width:"100%"}}>
+                    <tr className="tableRow" key={users.custID} style={{background: "lightgray", width:"100%"}}>
                         <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{users.userFirstName}{users.userLastName}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{users.userMail}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{users.userPhoneNumber1}</td>
