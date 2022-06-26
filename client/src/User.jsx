@@ -50,10 +50,10 @@ class User extends React.Component {
                         <th style={{border: "2px solid grey", width: "33%"}}>E-Mail</th>
                         <th style={{border: "2px solid grey", width: "33%"}}>Phone Number</th>
                         <td className="tableCell" style={{ width: "11%"}}>
-                        <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                        <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained">Delete</Button>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained">Delete</Button>
                         </td>
                     </tr>
                 </table>

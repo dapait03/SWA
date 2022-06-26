@@ -111,7 +111,7 @@ VALUES
 '123',
 'Klaus',
 'Dieter-Klebsch',
-'Klaus.DieterKlebsch@mail.com',
+'klaus.dklebsch@mail.com',
 '+49150292389',
 '+1 138 192 308',
 1);
