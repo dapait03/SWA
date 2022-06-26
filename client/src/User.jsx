@@ -23,7 +23,7 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [], dialogIsOpen: false 
+            Tuser: [], dialogIsOpen: false 
         };
     }
     openDialog = () => {
@@ -34,11 +34,9 @@ class User extends React.Component {
         this.setState({ dialogIsOpen: false });
       };
 
-
-
     componentDidMount() {
         HttpService.getUsers().then(res => {
-            this.setState({ users : res });
+            this.setState({ Tuser : res });
         });
     }
 
@@ -48,19 +46,29 @@ class User extends React.Component {
             <div >
                 <table style={{ width: "100%" }}>
                     <tr className="tableRow">
-                        <th style={{border: "2px solid grey", width: "8%"}}>User</th>
-                        <th style={{border: "2px solid grey", width: "42%"}}>E-Mail</th>
-                        <th style={{border: "2px solid grey", width: "25%"}}>Phone Number</th>
-                        <Button style={{hidden: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        <th style={{border: "2px solid grey", width: "33%"}}>User</th>
+                        <th style={{border: "2px solid grey", width: "33%"}}>E-Mail</th>
+                        <th style={{border: "2px solid grey", width: "33%"}}>Phone Number</th>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button style={{visibility: "hidden"}}sx={{margin: "10px"}} variant="contained">Delete</Button>
+                        </td>
                     </tr>
                 </table>
-                {this.state.users&& this.state.users.map((users) =>
+                {this.state.Tuser&& this.state.Tuser.map((Tuser) =>
                 <table style={{width:"100%"}}>
-                    <tr className="tableRow" key={users.custID} style={{width:"100%"}}>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "8%"}}>{users.userFirstName}{users.userLastName}</td>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{users.userMail}</td>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{users.userPhoneNumber1}</td>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                    <tr className="tableRow" key={Tuser.id} style={{width:"100%"}}>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.firstName} {Tuser.lastName}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.mail}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.phoneNumber1}</td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                        </td>
+                        <td className="tableCell" style={{ width: "11%"}}>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Delete</Button>
+                        </td>
                     </tr>
                 </table>
                 )}

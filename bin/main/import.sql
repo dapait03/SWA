@@ -5,9 +5,9 @@ INSERT INTO `jodel`.`customers`
 `name`)
 VALUES
 (1,
-"Esslingen am Neckar, Main Street 12",
+"Esslingen am Neckar, Flandernstraße 4",
 "Sales",
-"IT Designers");
+"Design");
 
 INSERT INTO `jodel`.`customers`
 (`custID`,
@@ -16,9 +16,9 @@ INSERT INTO `jodel`.`customers`
 `name`)
 VALUES
 (2,
-"Stuttgart, Back Street 5",
+"Stuttgart, Königsstraße 23",
 "Logistik",
-"LogiComp");
+"Logistik Department");
 
 INSERT INTO `jodel`.`contracts`
 (`contID`,
@@ -38,12 +38,12 @@ VALUES
 "1.1.1.1",
 null,
 null,
-"9mawd8ha0mdawdulhaknwdumaop298",
+"an8769wgn8gawng7896awdng6adan697ng30973gh02783rgh87nmag87mgad8n967amgmd63897g",
 1,
 2,
 3,
 "2022-12-31",
-"0.1.0");
+"1.1.0");
 
 INSERT INTO `jodel`.`contracts`
 (`contID`,
@@ -63,7 +63,7 @@ VALUES
 "1.1.1.1",
 null,
 null,
-"jsbdnasdqo89289n1ö23h1p23812woejqöpoi",
+"guznawdnuadnaugzanduzgadng8aw76ngd9awn87dg69adng87awgd96n723dg9n634agh3807d73ga",
 20,
 40,
 10,
@@ -89,6 +89,29 @@ VALUES
 "Admin",
 "Istrator",
 "admin@email.com",
-"12345",
+"+49 2178 39827",
 "54321",
+1);
+
+INSERT INTO `jodel`.`tuser`
+(
+`id`,
+`username`,
+`password`,
+`userFirstName`,
+`userLastName`,
+`userMail`,
+`userPhoneNumber1`,
+`userPhoneNumber2`,
+`isAdmin`)
+VALUES
+(
+2,
+'KlDiKl01',
+'123',
+'Klaus',
+'Dieter-Klebsch',
+'klaus.dklebsch@mail.com',
+'+49150292389',
+'+1 138 192 308',
 1);
