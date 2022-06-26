@@ -21,9 +21,16 @@ class Contract extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contracts: [],
+            contracts: [], dialogIsOpen: false 
         };
     }
+    openDialog = () => {
+        this.setState({ dialogIsOpen: true });
+      };
+    
+      closeDialog = () => {
+        this.setState({ dialogIsOpen: false });
+      };
 
 
 
@@ -53,7 +60,7 @@ class Contract extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{contracts.contractStartDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Edit</Button>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
                     </tr>
                 </table>
                 )}
