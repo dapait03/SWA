@@ -5,6 +5,8 @@ import { Box, Button } from "@material-ui/core";
 
 import HttpService from "./HttpService";
 
+import ContractDialog from "./ContractDialog";
+
 const styles = theme => ({
     center: {
         display: 'block',
@@ -64,6 +66,7 @@ class Contract extends React.Component {
                     </tr>
                 </table>
                 )}
+                <ContractDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
             </div>
         );
     }

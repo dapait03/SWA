@@ -5,6 +5,8 @@ import { Box, Button } from "@material-ui/core";
 
 import HttpService from "./HttpService";
 
+import UserDialog from "./UserDialog";
+
 const styles = theme => ({
     center: {
         display: 'block',
@@ -62,6 +64,7 @@ class User extends React.Component {
                     </tr>
                 </table>
                 )}
+                <UserDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
             </div>
         );
     }
