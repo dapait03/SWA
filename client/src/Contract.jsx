@@ -31,9 +31,6 @@ class Contract extends React.Component {
         HttpService.getContracts().then(res => {
             this.setState({ contracts : res });
         });
-        HttpService.getCustomers().then(res => {
-            this.setState({ customers : res });
-        });
     }
 
     render() {
@@ -41,14 +38,13 @@ class Contract extends React.Component {
         return (
             <div>
                 {this.state.contracts&& this.state.contracts.map((contracts) =>
-                <table style={{background: "lightgray", width:"100%"}}>
-                    <tr className="tableRow" key={contracts.custID} style={{background: "lightgray", width:"100%"}}>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{customers.custID}</td>
+                <table style={{background: "#1976D2", width:"100%"}}>
+                    <tr className="tableRow" key={contracts.custID} style={{background: "#1986D2", width:"100%"}}>
+                        <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{contracts.contractUser1}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{contracts.contractStartDate}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Edit</Button>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Delete</Button>
                     </tr>
                 </table>
                 )}

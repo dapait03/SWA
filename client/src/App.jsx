@@ -48,8 +48,8 @@ class App extends React.Component {
 					<TopAppBar />
 					<Routes>
 						<Route path="/" element={<CustomerMS />} />
-						<Route path="/users" element={<ContractMS />} />
-						<Route path="/contracts" element={<UserMS />} />
+						<Route path="/users" element={<UserMS />} />
+						<Route path="/contracts" element={<ContractMS />} />
 					</Routes>
 
 				</div>
