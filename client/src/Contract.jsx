@@ -23,11 +23,12 @@ class Contract extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contracts: [], dialogIsOpen: false 
+            contracts: [], dialogIsOpen: false, editRow : 0
         };
     }
-    openDialog = () => {
+    openDialog = (rowId) => {
         this.setState({ dialogIsOpen: true });
+        this.setState({ editRow: rowId });
       };
     
       closeDialog = () => {
@@ -68,7 +69,7 @@ class Contract extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" >Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button 

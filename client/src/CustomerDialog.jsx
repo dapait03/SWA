@@ -6,16 +6,21 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useState, useEffect} from 'react';
+import HttpService from './HttpService';
 
-export default function CustomerDialog(props) {
-  const { open, onClose} = props;
+const CustomerDialog = (props) => { 
+  const { open, onClose, id, customers} = props;
+  const [custName, setCustName] = useState('');
 
-  const customer = "Klaus"; //Name aus props oder Datenbank
+  useEffect(() => {
+    try{setCustName(customers[id].name);}catch(e){}
+ });
 
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Edit Customer {customer}</DialogTitle>
+        <DialogTitle>Edit Customer {custName} </DialogTitle>
         <DialogContent>
         <Box
           component="form"
@@ -57,3 +62,5 @@ export default function CustomerDialog(props) {
     </div>
   );
 }
+
+export default CustomerDialog

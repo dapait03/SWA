@@ -23,12 +23,13 @@ class Customer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers: [], dialogIsOpen: false 
+            customers: [], dialogIsOpen: false, editRow : 0 
         };
     }
 
-    openDialog = () => {
+    openDialog = (rowId, cust) => {
         this.setState({ dialogIsOpen: true });
+        this.setState({ editRow: rowId });
       };
     
     closeDialog = () => {
@@ -72,7 +73,7 @@ class Customer extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.department}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.name}</td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary"  onClick={() => this.openDialog(customer.custID)}>Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button 
@@ -89,7 +90,7 @@ class Customer extends React.Component {
                     </tr>
                 </table>
                 )}
-                <CustomerDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
+                <CustomerDialog open={this.state.dialogIsOpen} onClose={this.closeDialog} id={this.state.editRow} customers={this.state.customers}/>
 
 
             </div>
