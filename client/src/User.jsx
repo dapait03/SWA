@@ -21,9 +21,16 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            users: [], dialogIsOpen: false 
         };
     }
+    openDialog = () => {
+        this.setState({ dialogIsOpen: true });
+      };
+    
+      closeDialog = () => {
+        this.setState({ dialogIsOpen: false });
+      };
 
 
 
@@ -43,7 +50,7 @@ class User extends React.Component {
                         <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{users.userFirstName}{users.userLastName}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{users.userMail}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{users.userPhoneNumber1}</td>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Edit</Button>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
                     </tr>
                 </table>
                 )}
