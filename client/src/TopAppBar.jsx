@@ -17,6 +17,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 
+import ContractDialog from './ContractDialog';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -106,7 +108,11 @@ const TopAppBar = () => {
           > {headertext}
           </Typography>
 
-		  <Button variant="contained" sx={{color : "#1976D2", bgcolor : "white", marginLeft : "10vw"}}>Add</Button>
+		  <Button
+      variant="contained" sx={{color : "#1976D2", bgcolor : "white", marginLeft : "10vw"}}
+      onClick={() => {
+      }}
+      >Add</Button>
 
 		  <Box sx={{ flexGrow: 1 }} />
           <Search>
