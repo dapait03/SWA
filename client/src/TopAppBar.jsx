@@ -11,11 +11,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import LogoutIcon from '@mui/icons-material/Logout';
-import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,7 +58,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const TopAppBar = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
-	const [headertext, setHeadertext] = React.useState('User');
+	const [headertext, setHeadertext] = React.useState('Customers');
+  const location = useLocation();
+
+  useEffect(() => {
+    headerChange();
+  });
+
+  const headerChange = () => {
+    if(location.pathname === '/'){
+      setHeadertext('Customers');
+    }
+    else if(location.pathname === '/contracts'){
+      setHeadertext('Contracts');
+    }
+    else if(location.pathname === '/users'){
+      setHeadertext('Users');
+    }
+  }
 
 	const isMenuOpen = Boolean(anchorEl);
   

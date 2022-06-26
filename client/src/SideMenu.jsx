@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react';
 
 const SideMenu = () => {
     const [color1, setColor1] = React.useState("#1976D2");
@@ -13,6 +14,12 @@ const SideMenu = () => {
     const [bgColor1, setBgColor1] = React.useState("white");
     const [bgColor2, setBgColor2] = React.useState("#1976D2");
     const [bgColor3, setBgColor3] = React.useState("#1976D2");
+
+    const location = useLocation();
+
+    useEffect(() => {
+      highlightButton(location.pathname);
+    });
 
     const highlightButton = (path) => {  // highlight the button that is currently selected
         setColor1("white"); setColor2("white"); setColor3("white");
@@ -40,21 +47,21 @@ const SideMenu = () => {
             <Button component={Link} to="/" variant="outlined" size="large" sx={{color : color1, bgcolor: bgColor1, borderColor : "white", marginTop: "10vh", width:"80%", marginLeft: "10%",  '&:hover': {
                 backgroundColor: "#0b365e",
             },}}
-                        onClick={() => highlightButton("/")}
+            
             >
                 Customers
             </Button>
             <Button component={Link} to="/contracts" variant="outlined" size="large" sx={{color : color2, bgcolor: bgColor2,  borderColor : "white", marginTop: "5vh", width:"80%" , marginLeft: "10%", '&:hover': {
                 backgroundColor: "#0b365e"
             },}} 
-                        onClick={() => highlightButton("/contracts")}
+        
             >
                 Contracts
             </Button>
             <Button component={Link} to="/users" variant="outlined" size="large" sx={{color : color3, bgcolor: bgColor3, borderColor : "white", marginTop: "5vh", width:"80%" , marginLeft: "10%", '&:hover': {
                 backgroundColor: "#0b365e"
             },}}
-                        onClick={() => highlightButton("/users")}
+            
             >
                 Users
             </Button>
