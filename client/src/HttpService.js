@@ -17,21 +17,21 @@ async function getUsers(){
 
 async function deleteUser(id){
     if(id){
-        const response = await axios.post("http://localhost:8080/users/delete", {id: id});
+        const response = await axios.delete(`http://localhost:8080/users/${id}`);
         return response.data;
     }
 }
 
 async function deleteContract(id){
     if(id){
-        const response = await axios.post("http://localhost:8080/contracts/delete", {id: id});
+        const response = await axios.delete(`http://localhost:8080/contracts/${id}`);
         return response.data;
     }
 }
 
 async function deleteCustomer(id){
     if(id){
-        const response = await axios.post("http://localhost:8080/customers/delete", {id: id});
+        const response = await axios.delete(`http://localhost:8080/customers/${id}`);
         return response.data;
     }
 }

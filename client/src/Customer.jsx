@@ -35,6 +35,11 @@ class Customer extends React.Component {
         this.setState({ dialogIsOpen: false });
       };
 
+    deleteCustomer(id) {
+        HttpService.deleteCustomer(id).then(res => {
+        });
+    }
+
     componentDidMount() {
         HttpService.getCustomers().then(res => {
             this.setState({ customers : res });

@@ -14,7 +14,6 @@ export default function CustomerDialog(props) {
 
   return (
     <div>
-
       <Dialog open={open} onClose={onClose}>
         <DialogTitle>Edit Customer {customer}</DialogTitle>
         <DialogContent>

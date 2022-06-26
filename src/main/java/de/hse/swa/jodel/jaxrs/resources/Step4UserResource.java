@@ -10,6 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -164,11 +165,24 @@ public class Step4UserResource {
         return userDao.login(user.getUsername(), user.getPassword());
     }
     
-    
+    @DELETE
+    @Path("contracts/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void removeContractsByID(@PathParam("id") Long id) {
+        contractDao.deleteContract(id);
+    }
+
     @DELETE
     @Path("users/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void removeAllUsers() {
-    	userDao.deleteAllUsers();
+    public void removeUsersByID(@PathParam("id") Long id) {
+        userDao.deleteUser(id);
+    }
+
+    @DELETE
+    @Path("customers/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void removeCustomerByID(@PathParam("id") Long id) {
+        customerDao.deleteCustomer(id);
     }
 }
