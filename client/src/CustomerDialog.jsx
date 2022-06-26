@@ -7,8 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function CustomerDialog() {
-  const [open, setOpen] = React.useState(false);
+export default function CustomerDialog(props) {
+  const { open, onClose} = props;
+
   const customer = "Klaus"; //Name aus props oder Datenbank
 
   const handleClickOpen = () => {
@@ -21,8 +22,8 @@ export default function CustomerDialog() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} />
-      <Dialog open={open} onClose={handleClose}>
+
+      <Dialog open={open} onClose={onClose}>
         <DialogTitle>Edit Customer {customer}</DialogTitle>
         <DialogContent>
         <Box
@@ -58,8 +59,8 @@ export default function CustomerDialog() {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Save</Button>
+          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
