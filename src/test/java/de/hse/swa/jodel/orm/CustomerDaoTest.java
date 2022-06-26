@@ -28,7 +28,7 @@ public class CustomerDaoTest {
     // Finished
     @Test
     void testGetCustomer() {
-        Customer testCustomer = new Customer("Test Company", "Test Department", "Test Address");
+        Customer testCustomer = new Customer(10L,"Test Company", "Test Department", "Test Address");
         customerDao.addToCustomerList(testCustomer);
         Customer testCustomer2 = customerDao.getCustomer(0L);
         // Tests
@@ -40,9 +40,9 @@ public class CustomerDaoTest {
 
     @Test
     void testGetCustomerList(){
-        Customer testCustomer = new Customer("Test Company", "Test Department", "Test Address");
+        Customer testCustomer = new Customer(10L,"Test Company", "Test Department", "Test Address");
         customerDao.addToCustomerList(testCustomer);
-        Customer testCustomer2 = new Customer("Test Company2", "Test Department2", "Test Address2");
+        Customer testCustomer2 = new Customer(10L,"Test Company2", "Test Department2", "Test Address2");
         customerDao.addToCustomerList(testCustomer2);
         List<Customer> testCustomerList = customerDao.getCustomers();
         assertEquals(testCustomerList.size(), 2);
@@ -58,7 +58,7 @@ public class CustomerDaoTest {
 
     @Test
     void testAddToCustomerList() {
-        Customer TestCustomer = new Customer("Test Company", "Test Department", "Test Street");
+        Customer TestCustomer = new Customer(10L,"Test Company", "Test Department", "Test Street");
         customerDao.addToCustomerList(TestCustomer);
         // Test
         assertEquals( customerDao.getCustomers().size(), 1);
@@ -66,7 +66,7 @@ public class CustomerDaoTest {
 
     @Test
     void testDeleteCustomer(){
-        Customer testCustomer = new Customer("Test Company", "Test Department", "Test Street");
+        Customer testCustomer = new Customer(10L,"Test Company", "Test Department", "Test Street");
         customerDao.addToCustomerList(testCustomer);
         customerDao.deleteCustomer(0L);
         // Test
@@ -75,8 +75,8 @@ public class CustomerDaoTest {
 
     @Test
     void testDeleteCustomerList(){
-        Customer testCustomer = new Customer("Test Company", "Test Department", "Test Street");
-        Customer testCustomer2 = new Customer("Test Company2", "Test Department2", "Test Street2");
+        Customer testCustomer = new Customer(10L,"Test Company", "Test Department", "Test Street");
+        Customer testCustomer2 = new Customer(10L,"Test Company2", "Test Department2", "Test Street2");
         customerDao.addToCustomerList(testCustomer);
         customerDao.addToCustomerList(testCustomer2);
         customerDao.deleteAllCustomers();
