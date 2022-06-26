@@ -45,14 +45,10 @@ class Customer extends React.Component {
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.department}</td>
                         <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.name}</td>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog(customer.name,customer.custID)}>Edit</Button>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Delete</Button>
                     </tr>
                 </table>
                 )}
-
-                {this.state.customers&& this.state.customers.map((cus, i) =>
-                 <Box key={i}>{cus.name}</Box>
-                )}
-
             </div>
         );
     }

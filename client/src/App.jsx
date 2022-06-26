@@ -2,7 +2,9 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
 import TopAppBar from "./TopAppBar";
-import MainScene from "./MainScene";
+import CustomerMS from "./CustomerMS";
+import ContractMS from "./ContractMS";
+import UserMS from "./UserMS";
 import Footer from "./Footer";
 
 import Login from './Login';
@@ -44,11 +46,10 @@ class App extends React.Component {
 			return (
 				<div>
 					<TopAppBar />
-					<MainScene />
 					<Routes>
-						<Route path="/" element={<Customer />} />
-						<Route path="/users" element={<User />} />
-						<Route path="/contracts" element={<Contract />} />
+						<Route path="/" element={<CustomerMS />} />
+						<Route path="/users" element={<ContractMS />} />
+						<Route path="/contracts" element={<UserMS />} />
 					</Routes>
 
 				</div>

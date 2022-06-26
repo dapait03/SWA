@@ -1,15 +1,11 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 
 import SideMenu from './SideMenu';
 import Customer from './Customer';
 
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MainScene = () => {
+const CustomerMS = () => {
     const classes = useStyles();
 
     return(
@@ -42,4 +38,4 @@ const MainScene = () => {
     );
 }
 
-export default MainScene;
+export default CustomerMS;
