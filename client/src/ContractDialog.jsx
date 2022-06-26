@@ -13,8 +13,9 @@ import MenuItem from '@mui/material/MenuItem';
 
 // npm i date-fns // npm install @mui/x-date-pickers // npm install @mui/x-data-grid
 
-export default function ContractDialog() {
-  const [open, setOpen] = React.useState(false);
+export default function ContractDialog(props) {
+  const { open, onClose} = props;
+
   const [date, setDate] = React.useState(new Date('2022-08-18T21:11:54'));
   const [version, setVersion] = React.useState('');
   const [responsible, setResponsible] = React.useState('');
@@ -40,14 +41,6 @@ const versions = [       //Generation über Datenbank
 },
 ];
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleChange1 = (event) => {
     setVersion(event.target.value);
   };
@@ -60,8 +53,7 @@ const versions = [       //Generation über Datenbank
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} />
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={onClose}>
         <DialogTitle>Contract Details {contract}</DialogTitle>
         <DialogContent>
         <Box
@@ -185,8 +177,8 @@ const versions = [       //Generation über Datenbank
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Save</Button>
+          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>

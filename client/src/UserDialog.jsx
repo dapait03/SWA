@@ -11,8 +11,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
 
-export default function UserDialog() {
-  const [open, setOpen] = React.useState(false);
+export default function UserDialog(props) {
+  const { open, onClose} = props;
+ 
   const [customer, setCustomer] = React.useState('');
   const username = "Klaus"; //Name aus props oder Datenbank
 
@@ -35,13 +36,6 @@ export default function UserDialog() {
     },
   ];
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const handleChange = (event) => {
     setCustomer(event.target.value);
@@ -49,8 +43,7 @@ export default function UserDialog() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} />
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={onClose}>
         <DialogTitle>Edit User {username}</DialogTitle>
         <DialogContent>
         <Box
@@ -117,8 +110,8 @@ export default function UserDialog() {
         </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Save</Button>
+          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
