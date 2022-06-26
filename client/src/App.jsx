@@ -9,6 +9,9 @@ import Login from './Login';
 import Customer from './Customer';
 import User from './User';
 import Contract from './Contract';
+import UserDialog from "./UserDialog";
+import ContractDialog from "./ContractDialog";
+import CustomerDialog from "./CustomerDialog";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -42,6 +45,9 @@ class App extends React.Component {
 				<div>
 					<TopAppBar />
 					<SideMenu />
+					<UserDialog />
+					<ContractDialog />
+					<CustomerDialog />
 					<Routes>
 						<Route path="/" element={<Customer />} />
 						<Route path="/users" element={<User />} />
