@@ -46,12 +46,12 @@ class Customer extends React.Component {
         return (
             <div>
                 {this.state.customers&& this.state.customers.map((customer) =>
-                <table style={{background: "lightgray", width:"100%"}}>
-                    <tr className="tableRow" key={customer.custID} style={{background: "lightgray", width:"100%"}}>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{customer.custID}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{customer.address}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.department}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{customer.name}</td>
+                <table style={{ width:"100%" }}>
+                    <tr className="tableRow" key={customer.custID} style={{ width:"100%" }}>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "4%"}}>{customer.custID}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "46%"}}>{customer.address}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.department}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.name}</td>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
                     </tr>
                 </table>
