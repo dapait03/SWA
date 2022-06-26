@@ -12,14 +12,6 @@ export default function CustomerDialog(props) {
 
   const customer = "Klaus"; //Name aus props oder Datenbank
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <div>
 
