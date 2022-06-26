@@ -70,8 +70,18 @@ class Customer extends React.Component {
                             <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Delete</Button>
-                        </td>                    </tr>
+                            <Button 
+                            sx={{margin: "10px"}} variant="contained" color="primary" 
+                            onClick={() => {
+                                HttpService.deleteCustomer(customer.custID).then(res => {
+                                    window.location.reload(false);
+                                });
+                            }}
+                            >
+                                Delete
+                            </Button>
+                        </td>                 
+                    </tr>
                 </table>
                 )}
                 <CustomerDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>

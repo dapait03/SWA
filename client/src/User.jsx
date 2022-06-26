@@ -67,7 +67,16 @@ class User extends React.Component {
                             <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Delete</Button>
+                            <Button 
+                            sx={{margin: "10px"}} variant="contained" color="primary" 
+                            onClick={() => {
+                                HttpService.deleteUser(Tuser.id).then(res => {
+                                    window.location.reload(false);
+                                });
+                            }}
+                            >
+                                Delete
+                            </Button>
                         </td>
                     </tr>
                 </table>

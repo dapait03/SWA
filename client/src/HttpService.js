@@ -16,18 +16,24 @@ async function getUsers(){
 }
 
 async function deleteUser(id){
-    const response = await axios.delete("http://localhost:8080/users/" + id);
-    return response.data;
+    if(id){
+        const response = await axios.post("http://localhost:8080/users/delete", {id: id});
+        return response.data;
+    }
 }
 
 async function deleteContract(id){
-    const response = await axios.delete("http://localhost:8080/contracts/" + id);
-    return response.data;
+    if(id){
+        const response = await axios.post("http://localhost:8080/contracts/delete", {id: id});
+        return response.data;
+    }
 }
 
 async function deleteCustomer(id){
-    const response = await axios.delete("http://localhost:8080/customers/" + id);
-    return response.data;
+    if(id){
+        const response = await axios.post("http://localhost:8080/customers/delete", {id: id});
+        return response.data;
+    }
 }
 
 const HttpService = {
