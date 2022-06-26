@@ -74,12 +74,15 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String name, String lastName, String loginName, String password, String mail, String phoneNumber1, boolean isAdmin) {
+	public User(Long id,String name, String lastName, String loginName, String password, String mail, String phoneNumber1, String phoneNumber2, boolean isAdmin) {
+		this.id = id;
 		this.userFirstName = name;
 		this.userLastName = lastName;
 		this.username = loginName;
+		this.password = password;
 		this.userMail = mail;
 		this.userPhoneNumber1 = phoneNumber1;
+		this.userPhoneNumber2 = phoneNumber2;
 		this.isAdmin = isAdmin;
 	}
 

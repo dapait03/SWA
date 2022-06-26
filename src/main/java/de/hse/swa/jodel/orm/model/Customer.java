@@ -49,7 +49,8 @@ public class Customer implements Serializable {
 	public Customer() {
 	}
 
-	public Customer(String name, String department, String address) {
+	public Customer(Long custID, String name, String department, String address) {
+		this.custID = custID;
 		this.name = name;
 		this.department = department;
 		this.address = address;

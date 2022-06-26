@@ -165,6 +165,11 @@ public class Step4UserResource {
         return userDao.login(user.getUsername(), user.getPassword());
     }
     
+    /**
+     * Delete an existing object
+     * @param id
+     */
+
     @DELETE
     @Path("contracts/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -185,4 +190,35 @@ public class Step4UserResource {
     public void removeCustomerByID(@PathParam("id") Long id) {
         customerDao.deleteCustomer(id);
     }
+
+    /**
+     * Update an existing object
+     * @param id
+     */
+    @POST
+    @Path("customers/{custId}/{custName}/{custDepartment}/{custAddress}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Customer addCustomer(@PathParam("custId") Long custId, @PathParam("custName") String custName, @PathParam("custDepartment") String custDepartment, @PathParam("custAddress") String custAddress ) {
+        Customer customerTemp = new Customer(custId, custName, custDepartment, custAddress);
+        return customerDao.addToCustomerList(customerTemp);
+    } 
+    @POST
+    @Path("users/{id}/{userFirstName}/{userLastName}/{username}/{password}/{userMail}/{userPhoneNumber1}/{userPhoneNumber2}/{isAdmin}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public User save(@PathParam("id") Long id, @PathParam("userFirstName") String userFirstName, @PathParam("userLastName") String userLastName, @PathParam("username") String username, @PathParam("password") String password, @PathParam("userMail") String userMail, @PathParam("userPhoneNumber1") String userPhoneNumber1, @PathParam("userPhoneNumber2") String userPhoneNumber2, @PathParam("isAdmin") boolean isAdmin ) {
+        User userTemp = new User(id, userFirstName, userLastName, username, password, userMail, userPhoneNumber1, userPhoneNumber2, isAdmin);
+        return userDao.save(userTemp);
+    } 
+    /* 
+    @POST
+    @Path("customers/{custId}/{custName}/{custDepartment}/{custAddress}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Contract addToContractList(@PathParam("custId") Long custId, @PathParam("custName") String custName, @PathParam("custDepartment") String custDepartment, @PathParam("custAddress") String custAddress ) {
+        Contract contractTemp = new Contract(custId, custName, custDepartment, custAddress);
+        return contractDao.addToContractList(contractTemp);
+    } 
+    */
 }
