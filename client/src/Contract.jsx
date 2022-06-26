@@ -37,13 +37,22 @@ class Contract extends React.Component {
         const { classes } = this.props;
         return (
             <div>
+                <table style={{ width: "100%" }}>
+                    <tr className="tableRow">
+                        <th style={{border: "2px solid grey", width: "8%"}}>Customer</th>
+                        <th style={{border: "2px solid grey", width: "42%"}}>Start Date</th>
+                        <th style={{border: "2px solid grey", width: "25%"}}>End Date</th>
+                        <th style={{border: "2px solid grey", width: "25%"}}>Version</th>
+                        <Button style={{hidden: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                    </tr>
+                </table>
                 {this.state.contracts&& this.state.contracts.map((contracts) =>
-                <table style={{background: "lightgray", width:"100%"}}>
-                    <tr className="tableRow" key={contracts.custID} style={{background: "lightgray", width:"100%"}}>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "4%"}}>{contracts.contractUser1}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "46%"}}>{contracts.contractStartDate}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
-                        <td className="tableCell" style={{border: "1px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
+                <table style={{width:"100%"}}>
+                    <tr className="tableRow" key={contracts.custID} style={{width:"100%"}}>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "8%"}}>{contracts.contractUser1}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{contracts.contractStartDate}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog()}>Edit</Button>
                     </tr>
                 </table>

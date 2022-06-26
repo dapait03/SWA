@@ -31,7 +31,7 @@ class Customer extends React.Component {
         this.setState({ dialogIsOpen: true });
       };
     
-      closeDialog = () => {
+    closeDialog = () => {
         this.setState({ dialogIsOpen: false });
       };
 
@@ -45,11 +45,20 @@ class Customer extends React.Component {
         const { classes } = this.props;
         return (
             <div>
+                <table style={{ width: "100%" }}>
+                    <tr className="tableRow">
+                        <th style={{border: "2px solid grey", width: "8%"}}>Customer</th>
+                        <th style={{border: "2px solid grey", width: "42%"}}>Adresse</th>
+                        <th style={{border: "2px solid grey", width: "25%"}}>Department</th>
+                        <th style={{border: "2px solid grey", width: "25%"}}>Name</th>
+                        <Button style={{hidden: "hidden"}}sx={{margin: "10px"}} variant="contained"></Button>
+                    </tr>
+                </table>
                 {this.state.customers&& this.state.customers.map((customer) =>
                 <table style={{ width:"100%" }}>
                     <tr className="tableRow" key={customer.custID} style={{ width:"100%" }}>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "4%"}}>{customer.custID}</td>
-                        <td className="tableCell" style={{border: "2px solid grey", width: "46%"}}>{customer.address}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "8%"}}>{customer.custID}</td>
+                        <td className="tableCell" style={{border: "2px solid grey", width: "42%"}}>{customer.address}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.department}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{customer.name}</td>
                         <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
