@@ -16,6 +16,10 @@ import Button from '@mui/material/Button';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
+import UserDialog from './UserDialog';
+import ContractDialog from './ContractDialog';
+import CustomerDialog from './CustomerDialog';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -59,11 +63,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const TopAppBar = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [headertext, setHeadertext] = React.useState('Customers');
+  const [dialogOpenCust, setdialogOpenCust] = React.useState(false);
+  const [dialogOpenCon, setdialogOpenCon] = React.useState(false);
+  const [dialogOpenUsr, setdialogOpenUsr] = React.useState(false);
   const location = useLocation();
 
   useEffect(() => {
     headerChange();
   });
+
+  const openDialog = () => {
+    if(location.pathname === '/'){
+      setdialogOpenCust(true);
+    }
+    else if(location.pathname === '/contracts'){
+      setdialogOpenCon(true);
+    }
+    else if(location.pathname === '/users'){
+      setdialogOpenUsr(true);
+    }
+  };
+
+  const closeDialog = () => {
+    setdialogOpenUsr( false );
+    setdialogOpenCon( false );
+    setdialogOpenCust( false );
+  };
 
   const headerChange = () => {
     if(location.pathname === '/'){
@@ -118,15 +143,18 @@ const TopAppBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block', width : "6vw" } }}
           > {headertext}
           </Typography>
 
 		  <Button
-      variant="contained" sx={{color : "#1976D2", bgcolor : "white", marginLeft : "10vw"}}
-      onClick={() => {
-      }}
+      variant="contained" sx={{color : "#1976D2", bgcolor : "white", marginLeft : "6vw"}}
+      onClick={openDialog}
       >Add</Button>
+
+      <UserDialog open={dialogOpenUsr} onClose={closeDialog}/>
+      <ContractDialog open={dialogOpenCon} onClose={closeDialog}/>
+      <CustomerDialog open={dialogOpenCust} onClose={closeDialog}/>
 
 		  <Box sx={{ flexGrow: 1 }} />
           <Search>
