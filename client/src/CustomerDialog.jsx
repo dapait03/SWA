@@ -4,11 +4,12 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function CustomerDialog() {
   const [open, setOpen] = React.useState(false);
+  const customer = "Klaus"; //Name aus props oder Datenbank
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -24,9 +25,14 @@ export default function CustomerDialog() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit Customer {customer}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-
-          </DialogContentText>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
           <TextField
             autoFocus
             margin="dense"
@@ -49,6 +55,7 @@ export default function CustomerDialog() {
             type="address"
             variant="standard"
           />
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

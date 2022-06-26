@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 
 const SideMenu = () => {
     const [color1, setColor1] = React.useState("#1976D2");
-    const [color2, setColor2] = React.useState("#white");
+    const [color2, setColor2] = React.useState("white");
     const [color3, setColor3] = React.useState("white");
 
     const [bgColor1, setBgColor1] = React.useState("white");
