@@ -36,13 +36,40 @@ async function deleteCustomer(id){
     }
 }
 
+async function updateUser(user){
+    if(user){
+        const response = await axios.put(`http://localhost:8080/users/${user.id}/${user.userFirstName}/${user.userLastName}/${user.username}/${user.password}/${user.userMail}/${user.userPhoneNumber1}/${user.userPhoneNumber2}/${user.isAdmin}`, user);
+        return response.data;
+    }
+}
+
+async function updateCustomer(customer){
+    if(customer){
+        const response = await axios.put(`http://localhost:8080/customers/${customer.custId}/${customer.custName}/${customer.custDepartment}/${customer.custAddress}`, customer);
+        return response.data;
+    }
+}
+
+/*
+ * Non functional
+*/
+async function updateContract(contract){
+    if(contract){
+        const response = await axios.put(`http://localhost:8080/contracts/${contract.id}`, contract);
+        return response.data;
+    }
+}
+
 const HttpService = {
     getCustomers,
     getContracts,
     getUsers,
     deleteUser,
     deleteContract,
-    deleteCustomer
+    deleteCustomer,
+    updateUser,
+    updateContract,
+    updateCustomer
 };
 
 export default HttpService;
