@@ -80,7 +80,8 @@ INSERT INTO `jodel`.`tuser`
 `userMail`,
 `userPhoneNumber1`,
 `userPhoneNumber2`,
-`isAdmin`)
+`isAdmin`,
+`userCustomerName`)
 VALUES
 (
 1,
@@ -91,7 +92,8 @@ VALUES
 "admin@email.com",
 "+49 2178 39827",
 "54321",
-1);
+1,
+"Design");
 
 INSERT INTO `jodel`.`tuser`
 (
@@ -103,7 +105,8 @@ INSERT INTO `jodel`.`tuser`
 `userMail`,
 `userPhoneNumber1`,
 `userPhoneNumber2`,
-`isAdmin`)
+`isAdmin`,
+`userCustomerName`)
 VALUES
 (
 2,
@@ -114,4 +117,5 @@ VALUES
 'klaus.dklebsch@mail.com',
 '+49150292389',
 '+1 138 192 308',
-1);
+1,
+"Logistik");

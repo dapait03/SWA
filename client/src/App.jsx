@@ -35,7 +35,7 @@ class App extends React.Component {
 	}
   
 	render() {
-		// if (this.state.loggedIn) {
+		if (this.state.loggedIn) {
 			return (
 				<div>
 					<TopAppBar />
@@ -47,11 +47,11 @@ class App extends React.Component {
 
 				</div>
 			);
-		//} else {
-		//	return (
-		//		<Login url={theUrl} authorized = {this.authorized}></Login> 
-		//		);
-		//	}
+		} else {
+			return (
+				<Login url={theUrl} authorized = {this.authorized}></Login> 
+				);
+			}
 		}
 	}
 	
