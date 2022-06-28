@@ -211,14 +211,13 @@ public class Step4UserResource {
         User userTemp = new User(id, userFirstName, userLastName, username, password, userMail, userPhoneNumber1, userPhoneNumber2, isAdmin);
         return userDao.save(userTemp);
     } 
-    /* 
+
     @POST
-    @Path("customers/{custId}/{custName}/{custDepartment}/{custAddress}")
+    @Path("contracts/{contID}/{contractStartDate}/{contractEndDate}/{contractIp1}/{contractIp2}/{contractIp3}/{contractVersion}/{contractNumFeature1}/{contractNumFeature2}/{contractNumFeature3}/{contractUser1}/{contractUser2}/{contractLicenseKey}/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Contract addToContractList(@PathParam("custId") Long custId, @PathParam("custName") String custName, @PathParam("custDepartment") String custDepartment, @PathParam("custAddress") String custAddress ) {
-        Contract contractTemp = new Contract(custId, custName, custDepartment, custAddress);
+    public Contract addToContractList(@PathParam("contID") Long contID, @PathParam("contractStartDate") java.sql.Date contractStartDate, @PathParam("contractEndDate") java.sql.Date contractEndDate, @PathParam("contractIp1") String contractIp1, @PathParam("contractIp2") String contractIp2, @PathParam("contractIp3") String contractIp3, @PathParam("contractVersion") String contractVersion, @PathParam("contractNumFeature1") int contractNumFeature1, @PathParam("contractNumFeature2") int contractNumFeature2, @PathParam("contractNumFeature3") int contractNumFeature3, @PathParam("contractUser1") User contractUser1, @PathParam("contractUser2") User contractUser2, @PathParam("contractLicenseKey") String contractLicenseKey ) {
+        Contract contractTemp = new Contract();
         return contractDao.addToContractList(contractTemp);
     } 
-    */
 }
