@@ -50,14 +50,14 @@ async function deleteUser(id){
 
 async function updateCustomer(customer){
     if(customer){
-        const response = await axios.put(`http://localhost:8080/customers/${customer.custId}/${customer.custName}/${customer.custDepartment}/${customer.custAddress}`, customer);
+        const response = await axios.put(`http://localhost:8080/customers/${customer.custID}/${customer.custName}/${customer.custDepartment}/${customer.custAddress}`, customer);
         return response.data;
     }
 }
 
 async function updateContract(contract){
     if(contract){
-        const response = await axios.put(`http://localhost:8080/contracts/${contract.id}/${contract.contractStartDate}/${contract.contractEndDate}/${contract.contractIp1}/${contract.contractIp2}/${contract.contractIp3}/${contract.contractVersion}/${contract.contractNumFeature1}/${contract.contractNumFeature2}/${contract.contractNumFeature3}/${contract.contractUser1}/${contract.contractUser2}/${contract.contractLicenseKey}`, contract);
+        const response = await axios.put(`http://localhost:8080/contracts/${contract.contID}/${contract.contractStartDate}/${contract.contractEndDate}/${contract.contractIp1}/${contract.contractIp2}/${contract.contractIp3}/${contract.contractVersion}/${contract.contractNumFeature1}/${contract.contractNumFeature2}/${contract.contractNumFeature3}/${contract.contractUser1}/${contract.contractUser2}/${contract.contractLicenseKey}`, contract);
         return response.data;
     }
 }
