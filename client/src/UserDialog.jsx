@@ -10,10 +10,18 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
-import {useEffect} from 'react';
+import HttpService from './HttpService';
 
 export default function UserDialog(props) {
-  const { open, onClose, editRow, firstName, lastName, mail, phoneNumber1, phoneNumber2, password, isAdmin} = props;
+  const { open, onClose, editRow, firstName, lastName, mail, phoneNumber1, phoneNumber2, password, isAdmin, username} = props;
+
+  //var userCustName = user.customerName;
+  var userFirstName= firstName;
+  var userLastName= lastName;
+  var userEmail= mail;
+  var userPhoneNr = phoneNumber1;
+  var userPhoneNr2 = phoneNumber2;
+  var Admin = isAdmin;
  
   const [customer, setCustomer] = React.useState('');
 
@@ -35,6 +43,41 @@ export default function UserDialog(props) {
       label: 'Customer 4',
     },
   ];
+
+ // const handleCustNameFieldChange = (event) => {
+ //   userCustName = event.target.value;
+ // }
+
+  const handleFirstNameFieldChange = (event) => {
+    userFirstName = event.target.value;
+  }
+
+  const handleLastNameFieldChange = (event) => {
+    userLastName = event.target.value;
+  }
+
+  const handleEmailFieldChange = (event) => {
+    userEmail = event.target.value;
+  }
+
+  const handlePhoneNr1FieldChange = (event) => {
+    userPhoneNr = event.target.value;
+  }
+
+  const handlePhoneNr2FieldChange = (event) => {
+    userPhoneNr2 = event.target.value;
+  }
+
+  const handleAdminCheckboxChange = (event) => {
+    Admin = event.target.checked;
+  }
+
+  const onSave = () => {
+
+    HttpService.updateUser(editRow, username, password, userFirstName, userLastName, userEmail, userPhoneNr, userPhoneNr2, Admin);
+
+    onClose();
+  }
 
 
   const handleChange = (event) => {
@@ -70,6 +113,7 @@ export default function UserDialog(props) {
         </Box>
           <TextField
             autoFocus
+            onChange={(event) => handleFirstNameFieldChange(event)}
             margin="dense"
             id="userFirstName"
             label="First Name"
@@ -78,6 +122,7 @@ export default function UserDialog(props) {
             variant="standard"
           />
           <TextField
+            onChange={(event) => handleLastNameFieldChange(event)}
             margin="dense"
             id="userLastName"
             label="Last Name"
@@ -86,6 +131,7 @@ export default function UserDialog(props) {
             variant="standard"
           />
           <TextField
+            onChange={(event) => handleEmailFieldChange(event)}
             margin="dense"
             id="userMail"
             label="E-Mail"
@@ -94,6 +140,7 @@ export default function UserDialog(props) {
             variant="standard"
           />
           <TextField
+            onChange={(event) => handlePhoneNr1FieldChange(event)}
             margin="dense"
             id="userPhoneNr1"
             label="Phone"
@@ -102,6 +149,7 @@ export default function UserDialog(props) {
             variant="standard"
           />
           <TextField
+          onChange={(event) => handlePhoneNr2FieldChange(event)}
             margin="dense"
             id="userPhoneNr2"
             label="Mobile"
@@ -111,20 +159,20 @@ export default function UserDialog(props) {
           />
           <TextField
             margin="dense"
-            id="userPhoneNr2"
+            id="password"
             label="Password"
             defaultValue={password}
             type="password"
             variant="standard"
           />
           <FormGroup>
-          <FormControlLabel control={<Checkbox defaultChecked={isAdmin} />} label="Is Administrator" />
+          <FormControlLabel control={<Checkbox defaultChecked={isAdmin} onChange={(event) => handleAdminCheckboxChange(event)} />} label="Is Administrator" />
           </FormGroup>
         </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onClose}>Save</Button>
+          <Button onClick={onSave}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>

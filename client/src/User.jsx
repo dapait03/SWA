@@ -23,10 +23,10 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Tuser: [], dialogIsOpen: false, editRow : 0, firstName: "", lastName: "", mail: "", phoneNumber1: "", phoneNumber2: "" , password: "", isAdmin: false
+            Tuser: [], dialogIsOpen: false, editRow : 0, firstName: "", lastName: "", mail: "", phoneNumber1: "", phoneNumber2: "" , password: "", isAdmin: false , username: ""
         };
     }
-    openDialog = (rowId, firstName, lastName, mail, phone1, phone2, password, isAdmin) => {
+    openDialog = (rowId, firstName, lastName, mail, phone1, phone2, password, isAdmin, username) => {
         this.setState({ dialogIsOpen: true });
         this.setState({ editRow: rowId });
         this.setState({ firstName: firstName });
@@ -36,6 +36,7 @@ class User extends React.Component {
         this.setState({ phoneNumber2: phone2 });
         this.setState({ password: password });
         this.setState({ isAdmin: isAdmin });
+        this.setState({ username: username });
       };
     
       closeDialog = () => {
@@ -73,7 +74,7 @@ class User extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.phoneNumber1}</td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog(Tuser.id, Tuser.firstName, Tuser.lastName, 
-                                Tuser.mail, Tuser.phoneNumber1, Tuser.phoneNumber2, Tuser.password, Tuser.admin)}>Edit</Button>
+                                Tuser.mail, Tuser.phoneNumber1, Tuser.phoneNumber2, Tuser.password, Tuser.admin, Tuser.username)}>Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button 
@@ -92,7 +93,7 @@ class User extends React.Component {
                 )}
                 <UserDialog open={this.state.dialogIsOpen} onClose={this.closeDialog} editRow={this.state.editRow} 
                 firstName={this.state.firstName} lastName={this.state.lastName} mail={this.state.mail} phoneNumber1={this.state.phoneNumber1} phoneNumber2={this.state.phoneNumber2}
-                password={this.state.password} isAdmin={this.state.isAdmin}
+                password={this.state.password} isAdmin={this.state.isAdmin} username={this.state.username}
                 />
             </div>
         );
