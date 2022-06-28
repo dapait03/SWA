@@ -12,10 +12,9 @@ import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function UserDialog(props) {
-  const { open, onClose} = props;
+  const { open, onClose, editRow, firstName, lastName, mail, phoneNumber1, phoneNumber2} = props;
  
   const [customer, setCustomer] = React.useState('');
-  const username = "Klaus"; //Name aus props oder Datenbank
 
   const customers = [       //Generation über Datenbank
     {
@@ -44,7 +43,7 @@ export default function UserDialog(props) {
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Edit User {username}</DialogTitle>
+        <DialogTitle>Edit User {firstName}</DialogTitle>
         <DialogContent>
         <Box
           component="form"
@@ -73,6 +72,7 @@ export default function UserDialog(props) {
             margin="dense"
             id="userFirstName"
             label="First Name"
+            defaultValue={firstName}
             type="firstName"
             variant="standard"
           />
@@ -80,6 +80,7 @@ export default function UserDialog(props) {
             margin="dense"
             id="userLastName"
             label="Last Name"
+            defaultValue={lastName}
             type="lastName"
             variant="standard"
           />
@@ -87,6 +88,7 @@ export default function UserDialog(props) {
             margin="dense"
             id="userMail"
             label="E-Mail"
+            defaultValue={mail}
             type="email"
             variant="standard"
           />
@@ -94,6 +96,7 @@ export default function UserDialog(props) {
             margin="dense"
             id="userPhoneNr1"
             label="Phone"
+            defaultValue={phoneNumber1}
             type="phoneNr1"
             variant="standard"
           />
@@ -101,7 +104,16 @@ export default function UserDialog(props) {
             margin="dense"
             id="userPhoneNr2"
             label="Mobile"
+            defaultValue={phoneNumber2}
             type="phoneNr2"
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            id="userPhoneNr2"
+            label="Password"
+            defaultValue=""
+            type="password"
             variant="standard"
           />
           <FormGroup>

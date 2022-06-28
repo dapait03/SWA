@@ -10,17 +10,13 @@ import { useState, useEffect} from 'react';
 import HttpService from './HttpService';
 
 const CustomerDialog = (props) => { 
-  const { open, onClose, id, customers} = props;
-  const [custName, setCustName] = useState('');
+  const { open, onClose, id, address, department, name } = props;
 
-  useEffect(() => {
-    try{setCustName(customers[id].name);}catch(e){}
- });
 
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Edit Customer {custName} </DialogTitle>
+        <DialogTitle>Edit Customer {name} </DialogTitle>
         <DialogContent>
         <Box
           component="form"
@@ -35,6 +31,7 @@ const CustomerDialog = (props) => {
             margin="dense"
             id="name"
             label="Customer Name"
+            defaultValue={name}
             type="name"
             variant="standard"
           />
@@ -42,6 +39,7 @@ const CustomerDialog = (props) => {
             margin="dense"
             id="department"
             label="Department"
+            defaultValue={department}
             type="department"
             variant="standard"
           />
@@ -49,6 +47,7 @@ const CustomerDialog = (props) => {
             margin="dense"
             id="address"
             label="Address"
+            defaultValue={address}
             type="address"
             variant="standard"
           />
