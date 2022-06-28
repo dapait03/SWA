@@ -118,7 +118,7 @@ export default function UserDialog(props) {
             variant="standard"
           />
           <FormGroup>
-          <FormControlLabel control={<Checkbox />} checked={isAdmin} label="Is Administrator" />
+          <FormControlLabel control={<Checkbox defaultChecked={isAdmin} />} label="Is Administrator" />
           </FormGroup>
         </Box>
         </DialogContent>
