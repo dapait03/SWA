@@ -14,7 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 // npm i date-fns // npm install @mui/x-date-pickers // npm install @mui/x-data-grid
 
 export default function ContractDialog(props) {
-  const { open, onClose} = props;
+  const { open, onClose, editRow, contractStartDate, contractEndDate, contractVersion, contractIPs1, contractIPs2, contractIPs3,
+  contractNumFeatures1, contractNumFeatures2, contractNumFeatures3} = props;
 
   const [date, setDate] = React.useState(new Date('2022-08-18T21:11:54'));
   const [version, setVersion] = React.useState('');
@@ -117,6 +118,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractIPs1"
             label="IP Number"
+            defaultValue={contractIPs1}
             type="IPs"
             variant="standard"
           />
@@ -125,6 +127,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractNumFeature1"
             label="Feature A"
+            defaultValue={contractNumFeatures1}
             type="numFeature"
             variant="standard"
           />
@@ -132,6 +135,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractIPs2"
             label="IP Number"
+            defaultValue={contractIPs2}
             type="IPs"
             variant="standard"
           />
@@ -139,6 +143,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractNumFeature2"
             label="Feature B"
+            defaultValue={contractNumFeatures2}
             type="numFeature"
             variant="standard"
           />
@@ -146,6 +151,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractIPs3"
             label="IP Number"
+            defaultValue={contractIPs3}
             type="IPs"
             variant="standard"
           />
@@ -153,6 +159,7 @@ const versions = [       //Generation über Datenbank
             margin="dense"
             id="contractNumFeature3"
             label="Feature C"
+            defaultValue={contractNumFeatures3}
             type="numFeature"
             variant="standard"
           />

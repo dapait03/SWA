@@ -23,12 +23,24 @@ class Contract extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contracts: [], dialogIsOpen: false, editRow : 0
+            contracts: [], dialogIsOpen: false, editRow : 0, contractStartDate : "", contractEndDate : "", contractVersion : "", contractIPs1 : "", contractIPs2 : "", contractIPs3 : "",
+            contractNumFeatures1 : "", contractNumFeatures2 : "", contractNumFeatures3 : ""
         };
     }
-    openDialog = (rowId) => {
+    openDialog = (rowId, contractStartDate, contractEndDate,
+        contractVersion, contractIPs1, contractIPs2, contractIPs3, contractNumFeatures1,
+        contractNumFeatures2, contractNumFeatures3) => {
         this.setState({ dialogIsOpen: true });
         this.setState({ editRow: rowId });
+        this.setState({ contractStartDate: contractStartDate });
+        this.setState({ contractEndDate: contractEndDate });
+        this.setState({ contractVersion: contractVersion });
+        this.setState({ contractIPs1: contractIPs1 });
+        this.setState({ contractIPs2: contractIPs2 });
+        this.setState({ contractIPs3: contractIPs3 });
+        this.setState({ contractNumFeatures1: contractNumFeatures1 });
+        this.setState({ contractNumFeatures2: contractNumFeatures2 });
+        this.setState({ contractNumFeatures3: contractNumFeatures3 });
       };
     
       closeDialog = () => {
@@ -69,7 +81,10 @@ class Contract extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractEndDate}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "25%"}}>{contracts.contractVersion}</td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                        <Button sx={{margin: "10px"}}variant="contained" color="primary" >Edit</Button>
+                        <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog(contracts.contID, contracts.contractStartDate, contracts.contractEndDate,
+                            contracts.contractVersion, contracts.contractIPs1, contracts.contractIPs2, contracts.contractIPs3, contracts.contractNumFeatures1,
+                            contracts.contractNumFeatures2, contracts.contractNumFeatures3
+                            )} >Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button 
@@ -86,7 +101,9 @@ class Contract extends React.Component {
                     </tr>
                 </table>
                 )}
-                <ContractDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
+                <ContractDialog open={this.state.dialogIsOpen} onClose={this.closeDialog} editRow={this.state.editRow} contractStartDate={this.state.contractStartDate} contractEndDate={this.state.contractEndDate} 
+                contractVersion={this.state.editRow} contractIPs1={this.state.contractIPs1} contractIPs2={this.state.contractIPs2} contractIPs3={this.state.contractIPs3}
+                contractNumFeatures1={this.state.contractNumFeatures1} contractNumFeatures2={this.state.contractNumFeatures2} contractNumFeatures3={this.state.contractNumFeatures3} />
             </div>
         );
     }
