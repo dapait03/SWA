@@ -37,11 +37,11 @@ public class Contract implements Serializable {
 
     @Basic(optional=false)
     @Column(name = "contractStartDate")
-    private Date contractStartDate;
+    private java.sql.Date contractStartDate;
 
 	@Basic(optional=false)
 	@Column(name = "contractEndDate")
-	private Date contractEndDate;
+	private java.sql.Date contractEndDate;
 
 	@Basic(optional=false)
 	@Column(name = "contractIp1", length=64)
@@ -86,12 +86,20 @@ public class Contract implements Serializable {
 	public Contract() {
 	}
 
-	public Contract(Date startDate, Date endDate, String ip1, String version, String licenseKey) {
-		this.contractStartDate = startDate;
-		this.contractEndDate = endDate;
-		this.contractIp1 = ip1;
-		this.contractVersion = version;
-		this.contractLicenseKey = licenseKey;
+	public Contract(Long contID, java.sql.Date contractStartDate, java.sql.Date contractEndDate, String contractIp1, String contractIp2, String contractIp3, String contractVersion, int contractNumFeature1, int contractNumFeature2, int contractNumFeature3, User contractUser1, User contractUser2, String contractLicenseKey) {
+		this.contID = contID;
+		this.contractStartDate = contractStartDate;
+		this.contractEndDate = contractEndDate;
+		this.contractIp1 = contractIp1;
+		this.contractIp2 = contractIp2;
+		this.contractIp3 = contractIp3;
+		this.contractVersion = contractVersion;
+		this.contractNumFeature1 = contractNumFeature1;
+		this.contractNumFeature2 = contractNumFeature2;
+		this.contractNumFeature3 = contractNumFeature3;
+		this.contractUser1 = contractUser1;
+		this.contractUser2 = contractUser2;
+		this.contractLicenseKey = contractLicenseKey;
 	}
 
 	
