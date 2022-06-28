@@ -204,11 +204,11 @@ public class Step4UserResource {
         return customerDao.addToCustomerList(customerTemp);
     } 
     @POST
-    @Path("users/{id}/{userFirstName}/{userLastName}/{username}/{password}/{userMail}/{userPhoneNumber1}/{userPhoneNumber2}/{isAdmin}")
+    @Path("users/{id}/{userFirstName}/{userLastName}/{username}/{password}/{userMail}/{userPhoneNumber1}/{userPhoneNumber2}/{isAdmin}/{userCustomerName}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public User save(@PathParam("id") Long id, @PathParam("userFirstName") String userFirstName, @PathParam("userLastName") String userLastName, @PathParam("username") String username, @PathParam("password") String password, @PathParam("userMail") String userMail, @PathParam("userPhoneNumber1") String userPhoneNumber1, @PathParam("userPhoneNumber2") String userPhoneNumber2, @PathParam("isAdmin") boolean isAdmin ) {
-        User userTemp = new User(id, userFirstName, userLastName, username, password, userMail, userPhoneNumber1, userPhoneNumber2, isAdmin);
+    public User save(@PathParam("id") Long id, @PathParam("userFirstName") String userFirstName, @PathParam("userLastName") String userLastName, @PathParam("username") String username, @PathParam("password") String password, @PathParam("userMail") String userMail, @PathParam("userPhoneNumber1") String userPhoneNumber1, @PathParam("userPhoneNumber2") String userPhoneNumber2, @PathParam("isAdmin") boolean isAdmin, @PathParam("userCustomerName") String userCustomerName ) {
+        User userTemp = new User(id, userFirstName, userLastName, username, password, userMail, userPhoneNumber1, userPhoneNumber2, isAdmin, userCustomerName);
         return userDao.save(userTemp);
     } 
 

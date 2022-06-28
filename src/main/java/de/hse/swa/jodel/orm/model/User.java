@@ -71,10 +71,14 @@ public class User implements Serializable {
 	@Column(name = "isAdmin")
 	private boolean isAdmin;
 
+	@Basic(optional = false)
+	@Column(name = "userCustomerName",length = 50)
+	private String userCustomerName;
+
 	public User() {
 	}
 
-	public User(Long id,String name, String lastName, String loginName, String password, String mail, String phoneNumber1, String phoneNumber2, boolean isAdmin) {
+	public User(Long id,String name, String lastName, String loginName, String password, String mail, String phoneNumber1, String phoneNumber2, boolean isAdmin, String userCustomerName) {	
 		this.id = id;
 		this.userFirstName = name;
 		this.userLastName = lastName;
@@ -84,6 +88,7 @@ public class User implements Serializable {
 		this.userPhoneNumber1 = phoneNumber1;
 		this.userPhoneNumber2 = phoneNumber2;
 		this.isAdmin = isAdmin;
+		this.userCustomerName = userCustomerName;
 	}
 
 	
