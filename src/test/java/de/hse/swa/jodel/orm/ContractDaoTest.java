@@ -22,7 +22,7 @@ public class ContractDaoTest {
     @Inject
     ContractDao contractDao;
 
-    private Contract createContract(Long prefix, java.sql.Date contractStartDate, java.sql.Date contractEndDate, String contractLicenseKey, String contractIPs1, String contractIPs2, String contractIPs3, String contractVersion, int contractNumFeatures1, int contractNumFeatures2, int contractNumFeatures3, User contractUser1, User contractUser2){
+    private Contract createContract(Long prefix, java.sql.Date contractStartDate, java.sql.Date contractEndDate, String contractLicenseKey, String contractIPs1, String contractIPs2, String contractIPs3, String contractVersion, int contractNumFeatures1, int contractNumFeatures2, int contractNumFeatures3, String contractUser1, String contractUser2){
         Contract contract = new Contract();
         contract.setContID(prefix);
         contract.setContractStartDate(contractStartDate);
@@ -48,7 +48,7 @@ public class ContractDaoTest {
 
     @Test
     void testGetContract(){
-        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract);
         Contract contractFromDb = contractDao.getContract(1L);
         assertEquals(contract, contractFromDb);
@@ -56,9 +56,9 @@ public class ContractDaoTest {
 
     @Test
     void testGetContractList(){
-        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new User()", "new User()");
         contractDao.addToContractList(contract);
-        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new User()", "new User()");
         contractDao.addToContractList(contract2);
         List<Contract> contractList = contractDao.getContractList();
         assertEquals(2, contractList.size());
@@ -66,11 +66,11 @@ public class ContractDaoTest {
 
     @Test
     void testAddToContractList(){
-        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
-        contractDao.addToContractList(contract);
-        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract1 = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
+        contractDao.addToContractList(contract1);
+        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract2);
-        Contract contract3 = createContract(3L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract3 = createContract(3L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract3);
         Contract contractFromDb = contractDao.getContract(3L);
         assertEquals(contract3, contractFromDb);
@@ -78,7 +78,7 @@ public class ContractDaoTest {
     
     @Test
     void testDeleteContract(){
-        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract);
         contractDao.deleteContract(1L);
         Contract contractFromDb = contractDao.getContract(1L);
@@ -87,11 +87,11 @@ public class ContractDaoTest {
 
     @Test
     void testDeleteContractList(){
-        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract = createContract(1L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract);
-        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract2 = createContract(2L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract2);
-        Contract contract3 = createContract(3L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, new User(), new User());
+        Contract contract3 = createContract(3L, new java.sql.Date(System.currentTimeMillis()), new java.sql.Date(System.currentTimeMillis()), "test", "test", "test", "test", "1.0", 1, 1, 1, "new String", "String");
         contractDao.addToContractList(contract3);
         contractDao.deleteContractList();
         List<Contract> contractList = contractDao.getContractList();

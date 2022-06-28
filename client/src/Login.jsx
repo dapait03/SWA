@@ -92,7 +92,6 @@ class Login extends React.Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-				'Access-Control-Allow-Origin': '*',
             },
             method: 'post',
             body: formdata

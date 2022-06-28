@@ -73,11 +73,11 @@ public class Contract implements Serializable {
 
 	@Basic(optional=true)
 	@Column(name = "contractUser1")
-	private User contractUser1;
+	private String contractUser1;
 
 	@Basic(optional=true)
 	@Column(name = "contractUser2")
-	private User contractUser2;
+	private String contractUser2;
 
     @Basic(optional=false)
     @Column(name = "contractLicenseKey", length=2048)
@@ -86,7 +86,7 @@ public class Contract implements Serializable {
 	public Contract() {
 	}
 
-	public Contract(Long contID, java.sql.Date contractStartDate, java.sql.Date contractEndDate, String contractIp1, String contractIp2, String contractIp3, String contractVersion, int contractNumFeature1, int contractNumFeature2, int contractNumFeature3, User contractUser1, User contractUser2, String contractLicenseKey) {
+	public Contract(Long contID, java.sql.Date contractStartDate, java.sql.Date contractEndDate, String contractIp1, String contractIp2, String contractIp3, String contractVersion, int contractNumFeature1, int contractNumFeature2, int contractNumFeature3, String contractUser1, String contractUser2, String contractLicenseKey) {
 		this.contID = contID;
 		this.contractStartDate = contractStartDate;
 		this.contractEndDate = contractEndDate;
@@ -173,17 +173,17 @@ public class Contract implements Serializable {
 		this.contractNumFeature3 = contractNumFeature3;
 	}
 
-	public User getContractUser1() {
+	public String getContractUser1() {
 		return this.contractUser1;
 	}
-	public void setContractUser1(User contractUser1) {
+	public void setContractUser1(String contractUser1) {
 		this.contractUser1 = contractUser1;
 	}
 
-	public User getContractUser2() {
+	public String getContractUser2() {
 		return this.contractUser2;
 	}
-	public void setContractUser2(User contractUser2) {
+	public void setContractUser2(String contractUser2) {
 		this.contractUser2 = contractUser2;
 	}
 
