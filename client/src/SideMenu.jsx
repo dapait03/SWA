@@ -24,13 +24,13 @@ const SideMenu = () => {
     const highlightButton = (path) => {  // highlight the button that is currently selected
         setColor1("white"); setColor2("white"); setColor3("white");
         setBgColor1("#1976D2"); setBgColor2("#1976D2"); setBgColor3("#1976D2");
-        if(path == "/"){
+        if(path === "/"){
             setColor1("#1976D2"); setBgColor1("white");
         }
-        else if(path == "/contracts"){
+        else if(path === "/contracts"){
             setColor2("#1976D2"); setBgColor2("white");
         }
-        else if(path == "/users"){
+        else if(path === "/users"){
             setColor3("#1976D2"); setBgColor3("white");
         }
       };

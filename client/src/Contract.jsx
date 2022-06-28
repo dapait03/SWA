@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 
-import { Box, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 import HttpService from "./HttpService";
 
@@ -44,7 +44,7 @@ class Contract extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
         return (
             <div>
                 <table style={{ width: "100%" }}>

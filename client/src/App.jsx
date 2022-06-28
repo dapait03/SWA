@@ -7,12 +7,6 @@ import ContractMS from "./ContractMS";
 import UserMS from "./UserMS";
 
 import Login from './Login';
-import Customer from './Customer';
-import User from './User';
-import Contract from './Contract';
-import UserDialog from "./UserDialog";
-import ContractDialog from "./ContractDialog";
-import CustomerDialog from "./CustomerDialog";
 
 import { Routes, Route } from "react-router-dom";
 
