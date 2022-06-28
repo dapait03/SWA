@@ -23,11 +23,17 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Tuser: [], dialogIsOpen: false 
+            Tuser: [], dialogIsOpen: false, editRow : 0, firstName: "", lastName: "", mail: "", phoneNumber1: "", phoneNumber2: ""
         };
     }
-    openDialog = () => {
+    openDialog = (rowId, firstName, lastName, mail, phone1, phone2) => {
         this.setState({ dialogIsOpen: true });
+        this.setState({ editRow: rowId });
+        this.setState({ firstName: firstName });
+        this.setState({ lastName: lastName });
+        this.setState({ mail: mail });
+        this.setState({ phoneNumber1: phone1 });
+        this.setState({ phoneNumber2: phone2 });
       };
     
       closeDialog = () => {
@@ -64,7 +70,7 @@ class User extends React.Component {
                         <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.mail}</td>
                         <td className="tableCell" style={{border: "2px solid grey", width: "33%"}}>{Tuser.phoneNumber1}</td>
                         <td className="tableCell" style={{ width: "11%"}}>
-                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={this.openDialog}>Edit</Button>
+                            <Button sx={{margin: "10px"}}variant="contained" color="primary" onClick={() => this.openDialog(Tuser.id, Tuser.firstName, Tuser.lastName, Tuser.mail, Tuser.phoneNumber1, Tuser.phoneNumber2)}>Edit</Button>
                         </td>
                         <td className="tableCell" style={{ width: "11%"}}>
                             <Button 
@@ -81,7 +87,8 @@ class User extends React.Component {
                     </tr>
                 </table>
                 )}
-                <UserDialog open={this.state.dialogIsOpen} onClose={this.closeDialog}/>
+                <UserDialog open={this.state.dialogIsOpen} onClose={this.closeDialog} editRow={this.state.editRow} 
+                firstName={this.state.firstName} lastName={this.state.lastName} mail={this.state.mail} phoneNumber1={this.state.phoneNumber1} phoneNumber2={this.state.phoneNumber2}  />
             </div>
         );
     }
