@@ -74,7 +74,7 @@ export default function UserDialog(props) {
 
   const onSave = () => {
 
-    HttpService.updateUser(editRow, userFirstName, userLastName,  username, password, userEmail, userPhoneNr, userPhoneNr2, Admin);
+    HttpService.updateUser(editRow, userFirstName, userLastName, username, password, userEmail, userPhoneNr, userPhoneNr2, Admin);
 
     onClose();
   }
