@@ -9,6 +9,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Cors from 'cors';
+
+const cors = require('cors');
 
 const styles = theme => ({
 	center: {
@@ -90,6 +93,7 @@ class Login extends React.Component {
         var formdata = JSON.stringify( this.state );
         fetch( this.props.url + "/login", {
             headers: {
+				'mode': 'cors',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },

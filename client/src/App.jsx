@@ -5,7 +5,6 @@ import TopAppBar from "./TopAppBar";
 import CustomerMS from "./CustomerMS";
 import ContractMS from "./ContractMS";
 import UserMS from "./UserMS";
-import Footer from "./Footer";
 
 import Login from './Login';
 import Customer from './Customer';
@@ -63,10 +62,3 @@ class App extends React.Component {
 	}
 	
 	export default withStyles(styles)(App);
-	
-/*
-<Footer sx={{paddingBottom: "60px"}}></Footer>
-<Button component={Link} to="" variant="contained" color="primary">User</Button>
-<Button component={Link} to="/customer" variant="contained" color="primary">Customer</Button>
-<Button component={Link} to="/contract" variant="contained" color="primary">Contract</Button>
-*/
