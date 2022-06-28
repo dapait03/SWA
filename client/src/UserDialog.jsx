@@ -10,9 +10,10 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
+import {useEffect} from 'react';
 
 export default function UserDialog(props) {
-  const { open, onClose, editRow, firstName, lastName, mail, phoneNumber1, phoneNumber2} = props;
+  const { open, onClose, editRow, firstName, lastName, mail, phoneNumber1, phoneNumber2, password, isAdmin} = props;
  
   const [customer, setCustomer] = React.useState('');
 
@@ -112,12 +113,12 @@ export default function UserDialog(props) {
             margin="dense"
             id="userPhoneNr2"
             label="Password"
-            defaultValue=""
+            defaultValue={password}
             type="password"
             variant="standard"
           />
           <FormGroup>
-          <FormControlLabel control={<Checkbox />} label="Is Administrator" />
+          <FormControlLabel control={<Checkbox />} checked={isAdmin} label="Is Administrator" />
           </FormGroup>
         </Box>
         </DialogContent>
