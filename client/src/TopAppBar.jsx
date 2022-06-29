@@ -60,7 +60,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const TopAppBar = () => {
+const TopAppBar = (props) => {
+  const {onLogout} = props;
+
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [headertext, setHeadertext] = React.useState('Customers');
   const [dialogOpenCust, setdialogOpenCust] = React.useState(false);
@@ -101,6 +103,8 @@ const TopAppBar = () => {
       setHeadertext('Users');
     }
   }
+
+
 
 	const isMenuOpen = Boolean(anchorEl);
   
@@ -182,6 +186,7 @@ const TopAppBar = () => {
 			<IconButton
               size="large"
               color="inherit"
+              onClick={onLogout}
             >
               <Badge>
                 <LogoutIcon />
