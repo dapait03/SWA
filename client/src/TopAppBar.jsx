@@ -104,7 +104,9 @@ const TopAppBar = (props) => {
     }
   }
 
-
+  const openDialogAcc = () => {
+    setdialogOpenUsr(true);
+  };
 
 	const isMenuOpen = Boolean(anchorEl);
   
@@ -177,7 +179,7 @@ const TopAppBar = (props) => {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={openDialogAcc}
               color="inherit"
             >
               <AccountCircleIcon />
