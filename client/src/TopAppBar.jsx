@@ -60,7 +60,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const TopAppBar = () => {
+const TopAppBar = (props) => {
+  const {onLogout} = props;
+
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [headertext, setHeadertext] = React.useState('Customers');
   const [dialogOpenCust, setdialogOpenCust] = React.useState(false);
@@ -101,6 +103,10 @@ const TopAppBar = () => {
       setHeadertext('Users');
     }
   }
+
+  const openDialogAcc = () => {
+    setdialogOpenUsr(true);
+  };
 
 	const isMenuOpen = Boolean(anchorEl);
   
@@ -173,7 +179,7 @@ const TopAppBar = () => {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={openDialogAcc}
               color="inherit"
             >
               <AccountCircleIcon />
@@ -182,6 +188,7 @@ const TopAppBar = () => {
 			<IconButton
               size="large"
               color="inherit"
+              onClick={onLogout}
             >
               <Badge>
                 <LogoutIcon />

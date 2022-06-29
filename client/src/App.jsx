@@ -30,6 +30,10 @@ class App extends React.Component {
 		};
 	}
 
+	onLogout = () => {
+		this.setState({ loggedIn: false });
+	  };
+
 	authorized = () => {
 		this.setState({loggedIn: true});
 	}
@@ -38,7 +42,7 @@ class App extends React.Component {
 		if (this.state.loggedIn) {
 			return (
 				<div>
-					<TopAppBar />
+					<TopAppBar onLogout={this.onLogout} />
 					<Routes>
 						<Route path="/" element={<CustomerMS />} />
 						<Route path="/users" element={<UserMS />} />
