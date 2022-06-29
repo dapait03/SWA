@@ -12,7 +12,28 @@ import HttpService from './HttpService';
 const CustomerDialog = (props) => { 
   const { open, onClose, id, address, department, name } = props;
 
+  var custAddress = address;
+  var custDepartment = department;
+  var custName = name;
 
+
+  const handleNameFieldChange = (event) => {
+     custName = event.target.value;
+}
+
+const handleDepartmentFieldChange = (event) => {
+      custDepartment = event.target.value;
+}
+
+const handleAddressFieldChange = (event) => {
+      custAddress = event.target.value;
+}
+
+const onSave = () => {
+  HttpService.updateCustomer(id, custName, custDepartment, custAddress);
+
+  onClose();
+}
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
@@ -27,6 +48,7 @@ const CustomerDialog = (props) => {
           autoComplete="off"
         >
           <TextField
+          onChange={(event) => handleNameFieldChange(event)}
             autoFocus
             margin="dense"
             id="name"
@@ -36,6 +58,7 @@ const CustomerDialog = (props) => {
             variant="standard"
           />
           <TextField
+            onChange={(event) => handleDepartmentFieldChange(event)}
             margin="dense"
             id="department"
             label="Department"
@@ -44,6 +67,7 @@ const CustomerDialog = (props) => {
             variant="standard"
           />
           <TextField
+          onChange={(event) => handleAddressFieldChange(event)}
             margin="dense"
             id="address"
             label="Address"
@@ -55,7 +79,7 @@ const CustomerDialog = (props) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onClose}>Save</Button>
+          <Button onClick={onSave}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
