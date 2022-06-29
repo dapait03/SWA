@@ -73,5 +73,21 @@ class UserDaoTest {
 		List<User> persons = userDao.getUsers();
 		assertNotNull(userDao.login(persons.get(0).getUsername(), persons.get(0).getPassword()));
 	}
+
+	@Test
+	void testDeleteUsers(){
+		addTwoUsers();
+		List<User> users = userDao.getUsers();
+		userDao.deleteUser(users.get(0).getId());
+		users = userDao.getUsers();
+		assertEquals(users.size(),1);
+	}
+
+	@Test
+	void testGetUsers(){
+		addTwoUsers();
+		List<User> users = userDao.getUsers();
+		assertEquals(users.size(),2);
+	}
 	
 }

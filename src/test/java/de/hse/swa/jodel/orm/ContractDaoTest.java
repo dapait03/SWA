@@ -2,12 +2,10 @@ package de.hse.swa.jodel.orm;
 
 import de.hse.swa.jodel.orm.dao.ContractDao;
 import de.hse.swa.jodel.orm.model.Contract;
-import de.hse.swa.jodel.orm.model.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-import java.util.Date;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
